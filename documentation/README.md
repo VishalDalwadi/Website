@@ -59,4 +59,5 @@ Here you should be able to find everything you need to know to use and interact 
 [Documentation Guidelines]: Documentation.md
 [Dependency Management]: Dependencies.md
 [UI Development Environment]: UI-Dev-Env.md
+[Adapter Development]: AdapterDev.md
 

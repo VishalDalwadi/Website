@@ -39,7 +39,7 @@ To exclude specific tests not yet supported by an adapter, these tests can be an
 public void testingMethodYourAdapterDoesNotSupport(...
 ```
 
-The same annoation can also be used to exclude whole classes:
+The same annotation can also be used to exclude whole classes:
 ```java
 @Category([NameOfAdapter]Excluded.class)
 public class TestClassWhichYourAdapterNotSupports {
