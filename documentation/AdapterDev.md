@@ -28,16 +28,39 @@ Polypheny supports three types of deployment for adapters.
 - Docker
 - Remote
 
-While Remote does not need special setup besides a way to connect via IP and port, it is also less powerful.
-This due to the fact that Remote needs setup and management from the administrator/user of Polypheny.
-In contrast, Docker and Remote can be configured to directly manage the underlying database through Polypheny directly.
+While Remote does not need a special setup  besides a way to connect via IP and port, it is also less powerful.
+This due to the fact that Remote needs setup and management from the administrator/user itself.
+In contrast, Docker and Remote provided ways for the used to manage the database from withing Polypheny directly.
 
 When developing a new adapter, one should try to use an embedded version of the database or if none exists, use a Docker container if available.
-This helps a lot during development, as it allows to delete and spin up a new instance fast.
+This helps a lot during development, as it allows to delete and spin up a new instance a lot faster, then repeatedly configuring an external database.
 
 ## Add Adapter To Polypheny ( Store, Source )
+As a first step to add the adapter a main class adapter class, which either extends `DataSource` or `DataStore` has to be created.
+Additionally, this new class needs to define the possible adapter settings, these settings define the options, which the user can configure during the creation.
+These settings are defined with annotations of the adapter class.
 
-## Define Rules ( Store, Source )
+## Adding Rules ( Store, Source )
+Polypheny uses a relational algebra, which maps the queried statement and then is executed by the adapter holding the data.
+Each adapter can define for itself how this relational algebra operations are transformed to its own query representation.
+For this it has to define adapter specific rules, like for example `[adapter name]Project`, which defines how a Project is transformed, or `[adapter name]Filter` which transforms a Filter operation.
+Polyphenys relational algebra consists of the following basic operations:
+
+- `TableScan`
+- `Project`
+- `Filter`
+- `Aggregate`
+- `Sort`
+
+Additionally, it uses special operations for DMLs, which are:
+
+- `TableModify`
+- `Values`
+
+Both Sources and Stores need to support the `TableScan` operation.
+
+These operations need to be registered to the planner.
+
 
 ## Run Integration Pipeline ( Store )
 Polypheny comes with a huge testing suite, which can be used during development to assure correct implementation of stores.
