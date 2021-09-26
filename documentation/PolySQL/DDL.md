@@ -30,6 +30,13 @@ createViewStatement:
       [ '(' tableElement [, tableElement ]* ')' ]
       [ AS query ]
 
+createMaterializedViewStatement:
+      CREATE MATERIALIZED VIEW [ IF NOT EXISTS ] name
+      [ '(' tableElement [, tableElement ]* ')' ]
+      [ AS query ]
+      [ <ON> <STORE> storeName ( <COMMA> storeName )*]
+      [FRESHNESS (INTERVAL interval timeUnit | UPDATE interval | MANUAL )  ]
+
 tableElement:
       columnName type [ NOT ] NULL [ DEFAULT value ]
   |   PRIMARY KEY '(' columnName [, columnName ]* ')'
@@ -43,6 +50,9 @@ dropTableStatement:
 
 dropViewStatement:
       DROP VIEW [ IF EXISTS ] name
+
+dropMaterializedViewStatement:
+      DROP MATERIALIZED VIEW [ IF EXISTS ] name
       
 truncateTableStatement:
       TRUNCATE TABLE name
@@ -80,4 +90,7 @@ alterStatement:
      | ALTER TABLE [ schemaName . ] tableName MODIFY PARTITIONS '(' partitionId [ , partitionId ]* ')' ON STORE storeUniqueName
      | ALTER VIEW [ schemaName . ] tableName RENAME TO newTableName
      | ALTER VIEW [ schemaName . ] tableName RENAME COLUMN columnName TO newColumnName
+     | ALTER MATERIALIZED VIEW [ schemaName . ] tableName RENAME TO newTableName
+     | ALTER MATERIALIZED VIEW [ schemaName . ] tableName RENAME COLUMN columnName TO newColumnName
+     | ALTER MATERIALIZED VIEW [ schemaName . ] tableName FRESHNESS MANUAL
 {% endhighlight %}
