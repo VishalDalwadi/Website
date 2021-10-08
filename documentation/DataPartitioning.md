@@ -27,17 +27,18 @@ Currently Polypheny supports the following partition functions:
 * **List** - the table is partitioned by explicitly assigning values to each partition. These placements are the result of the extended vertical partitoning of a table.
 * **Hash** - the table is partitioned by specifying a modulus and a remainder for each partition. Each partition will hold the rows for which the hash value of the partition key divided by the specified modulus will produce the specified remainder
 * **Range** - the table is partitioned into numerical "ranges" defined by a key column, with no overlap between  the ranges of values assigned to different partitions. 
+* **Temperature Aware Partitioning** - a partition function which places data based on its "temperature" which classifies data entities depending on certain parameters like the access frequency
 
 ## Vertical + Horizontal Partitioning
 
 ### Current Limitations
 
-Currently every Data Placement (Table on a Store) dows not allow an arbitrary number of partitions per vertically placed partitions columns on that store.
+Currently every Data Placement (Table on a Store) does not allow an arbitrary number of partitions per vertically placed partitions columns on that store.
 This means that all columns placed on one specific store will all hold data belongind to the the assigned partitions, reducing the overall complexity of the system.
 
 
 ### Roadmap
 
-* **Temperature Aware Partitioning** - a partition function which places data based on its "temperature" which classifies data entities depending on certain parameters like the access frequency
+
 
 
