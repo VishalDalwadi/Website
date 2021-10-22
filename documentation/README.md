@@ -21,6 +21,7 @@ Here you should be able to find everything you need to know to use and interact 
 * [PolySQL]{:.heading.flip-title} --- The Polypheny SQL dialect
 * [MongoQL]{:.heading.flip-title} --- Documentation for the MongoDB Query Language.
 * [REST]{:.heading.flip-title} --- How to use the REST-based query interface.
+* [CQL]{:.heading.flip-title} --- Documentation for the Contextual Query Language.
 {:.related-posts.faded}
 
 
@@ -48,6 +49,7 @@ Here you should be able to find everything you need to know to use and interact 
 [PolySQL]: PolySQL/README.md
 [MongoQL]: MongoQl/README.md
 [REST]: REST/README.md
+[REST]: CQL/README.md
 
 [Data Stores]: Stores/README.md
 [Data Sources]: Sources/README.md
