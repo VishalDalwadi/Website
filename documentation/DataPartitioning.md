@@ -6,7 +6,7 @@ title: Data Partitioning
 Data partitioning generally enables a system to process data concurrently and to some extent even in parallel. Considering that access to data can be 
 efficiently load balanced and therefore enhances the throughput per query.
 Data partitioning is a widely used concept among DBMS, to split data in chunks or fragments of relevance
-and therefore achieve efficient access and parallel processing.
+and therefore achieve efficient access and parallel processing. With this kind of distribution Polypheny-DB is able to selectiviely replicate data for specific use cases. Such as read-performance enhancements, availability and security relateds zoning of data fragments. 
 
 In general data partitioning in Polypheny can be distinguished between two variations:
 
@@ -14,12 +14,17 @@ In general data partitioning in Polypheny can be distinguished between two varia
 * [Horizontal Partitioning](#horizontal-partitioning)
 
 ## Vertical Partitioning
+In Polypheny-DB is special
+
+Column Placmeents
 
 ## Horizontal Partitioning
 Refers to the partitioning of objects like tables into a disjoint set of rows that can be stored and accessed separetely.
 To support this explicit form of partitioning there exist several partition [algorithms](#existing-horizontal-partition-algorithms).
 These algorithms can be applied to a table based on an arbitary column which results in a fragmentation of the table 
 based on the data values of the selected column.
+
+Partition Placements
 
 ### Existing Horizontal Partition Algorithms
 
